@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { PaperProvider } from "react-native-paper";
+import MainApp from "./MainApp";
+import TodoNameProvider from "./contexts/TodoNameProvider";
+import WarningsContextProvider from "./contexts/WarningsContextProvider";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+    <WarningsContextProvider>
+
+      <TodoNameProvider>
+        
+        <PaperProvider>
+
+          <MainApp />
+
+        </PaperProvider>
+
+
+      </TodoNameProvider>
+
+    </WarningsContextProvider>
+
+
+
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
